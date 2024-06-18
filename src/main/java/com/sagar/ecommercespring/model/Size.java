@@ -1,4 +1,4 @@
-package com.sagar.model;
+package com.sagar.ecommercespring.model;
 
 public class Size {
 

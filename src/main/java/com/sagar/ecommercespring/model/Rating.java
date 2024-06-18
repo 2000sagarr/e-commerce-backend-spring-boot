@@ -1,8 +1,11 @@
-package com.sagar.model;
+package com.sagar.ecommercespring.model;
 
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
+
+
 
 @Entity
 @Table(name = "rating")

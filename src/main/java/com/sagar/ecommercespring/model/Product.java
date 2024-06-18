@@ -1,4 +1,4 @@
-package com.sagar.model;
+package com.sagar.ecommercespring.model;
 
 import jakarta.persistence.*;
 
@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

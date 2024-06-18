@@ -1,4 +1,4 @@
-package com.sagar.model;
+package com.sagar.ecommercespring.model;
 
 import jakarta.persistence.Column;
 

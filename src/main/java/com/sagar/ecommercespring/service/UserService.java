@@ -1,7 +1,7 @@
-package com.sagar.service;
+package com.sagar.ecommercespring.service;
 
-import com.sagar.exception.UserException;
-import com.sagar.model.User;
+import com.sagar.ecommercespring.exception.UserException;
+import com.sagar.ecommercespring.model.User;
 
 public interface  UserService {
 

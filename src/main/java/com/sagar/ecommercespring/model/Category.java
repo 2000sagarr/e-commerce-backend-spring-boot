@@ -1,11 +1,5 @@
-package com.sagar.model;
-import java.util.HashSet;
-import java.util.Set;
+package com.sagar.ecommercespring.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package com.sagar.model;
+package com.sagar.ecommercespring.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

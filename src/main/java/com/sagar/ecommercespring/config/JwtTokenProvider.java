@@ -1,4 +1,4 @@
-package com.sagar.config;
+package com.sagar.ecommercespring.config;
 
 import java.util.Collection;
 import java.util.Date;

@@ -1,7 +1,7 @@
-package com.sagar.service;
+package com.sagar.ecommercespring.service;
 
-import com.sagar.model.User;
-import com.sagar.repository.UserRepository;
+import com.sagar.ecommercespring.model.User;
+import com.sagar.ecommercespring.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

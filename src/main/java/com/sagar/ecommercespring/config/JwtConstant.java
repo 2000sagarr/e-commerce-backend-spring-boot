@@ -1,4 +1,4 @@
-package com.sagar.config;
+package com.sagar.ecommercespring.config;
 
 public class JwtConstant {
 	
