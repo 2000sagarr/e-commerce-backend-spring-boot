@@ -155,4 +155,11 @@ public class ProductServiceImpl implements ProductService{
         List<Product> pageContent = products.subList(startIndex, endIndex);
         return new PageImpl<>(pageContent, pageable, products.size()); // If color list is empty, do nothing and return all products
     }
+
+    @Override
+    public List<Product> recentlyAddedProduct() {
+
+        return productRepository.findTop10ByOrderByCreatedAtDesc();
+    }
+
 }
