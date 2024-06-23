@@ -7,7 +7,6 @@ public class AuthResponse {
     private boolean status;
 
     public AuthResponse() {
-        // TODO Auto-generated constructor stub
     }
 
     public AuthResponse(String jwt, boolean status) {

@@ -35,10 +35,6 @@ public class Category {
         // TODO Auto-generated constructor stub
     }
 
-
-
-
-
     public int getLevel() {
         return level;
     }
