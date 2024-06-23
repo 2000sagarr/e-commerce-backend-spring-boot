@@ -9,9 +9,11 @@ import com.sagar.ecommercespring.model.User;
 import com.sagar.ecommercespring.repository.CartItemRepository;
 import com.sagar.ecommercespring.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class CartItemServiceImpl implements CartItemService{
     private CartItemRepository cartItemRepository;
     private UserService userService;
@@ -38,7 +40,6 @@ public class CartItemServiceImpl implements CartItemService{
         CartItem item=findCartItemById(id);
         User user=userService.findUserById(item.getUserId());
 
-
         if(user.getId().equals(userId)) {
 
             item.setQuantity(cartItem.getQuantity());
@@ -46,8 +47,6 @@ public class CartItemServiceImpl implements CartItemService{
             item.setDiscountedPrice(item.getQuantity()*item.getProduct().getDiscountedPrice());
 
             return cartItemRepository.save(item);
-
-
         }
         else {
             throw new CartItemException("You can't update  another users cart_item");
@@ -75,7 +74,7 @@ public class CartItemServiceImpl implements CartItemService{
             cartItemRepository.deleteById(cartItem.getId());
         }
         else {
-            throw new UserException("you can't remove anothor users item");
+            throw new UserException("you can't remove another users item");
         }
 
     }
