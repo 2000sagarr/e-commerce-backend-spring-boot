@@ -1,5 +1,10 @@
 package com.sagar.ecommercespring.response;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class AuthResponse {
 
     private String jwt;
@@ -14,23 +19,4 @@ public class AuthResponse {
         this.jwt = jwt;
         this.status = status;
     }
-
-    public String getJwt() {
-        return jwt;
-    }
-
-    public void setJwt(String jwt) {
-        this.jwt = jwt;
-    }
-
-    public boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-
-
 }

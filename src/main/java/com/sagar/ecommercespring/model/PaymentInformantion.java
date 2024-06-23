@@ -1,9 +1,13 @@
 package com.sagar.ecommercespring.model;
 
 import jakarta.persistence.Column;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
+@Getter
+@Setter
 public class PaymentInformantion {
     @Column(name = "cardholder_name")
     private String cardholderName;
@@ -28,35 +32,5 @@ public class PaymentInformantion {
         this.cvv = cvv;
     }
 
-    public String getCardholderName() {
-        return cardholderName;
-    }
 
-    public void setCardholderName(String cardholderName) {
-        this.cardholderName = cardholderName;
-    }
-
-    public String getCardNumber() {
-        return cardNumber;
-    }
-
-    public void setCardNumber(String cardNumber) {
-        this.cardNumber = cardNumber;
-    }
-
-    public LocalDate getExpirationDate() {
-        return expirationDate;
-    }
-
-    public void setExpirationDate(LocalDate expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-
-    public String getCvv() {
-        return cvv;
-    }
-
-    public void setCvv(String cvv) {
-        this.cvv = cvv;
-    }
 }
