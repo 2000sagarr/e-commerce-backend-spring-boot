@@ -151,7 +151,6 @@ public class ProductServiceImpl implements ProductService{
         }
         int startIndex = (int) pageable.getOffset();
         int endIndex = Math.min(startIndex + pageable.getPageSize(), products.size());
-
         List<Product> pageContent = products.subList(startIndex, endIndex);
         return new PageImpl<>(pageContent, pageable, products.size()); // If color list is empty, do nothing and return all products
     }

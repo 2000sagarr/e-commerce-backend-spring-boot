@@ -2,12 +2,15 @@ package com.sagar.ecommercespring.controller;
 
 import com.sagar.ecommercespring.config.JwtTokenProvider;
 import com.sagar.ecommercespring.exception.UserException;
+import com.sagar.ecommercespring.model.Cart;
 import com.sagar.ecommercespring.model.User;
 import com.sagar.ecommercespring.repository.UserRepository;
 import com.sagar.ecommercespring.request.LoginRequest;
 import com.sagar.ecommercespring.response.AuthResponse;
+import com.sagar.ecommercespring.service.CartService;
 import com.sagar.ecommercespring.service.CustomUserServiceImpl;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -28,12 +31,15 @@ public class AuthController {
     private JwtTokenProvider jwtTokenProvider;
     private PasswordEncoder passwordEncoder;
     private CustomUserServiceImpl customUserDetails;
+    private CartService cartService;
 
-    public AuthController(UserRepository userRepository, CustomUserServiceImpl customUserDetails, PasswordEncoder passwordEncoder, JwtTokenProvider jwtTokenProvider) {
+    @Autowired
+    public AuthController(UserRepository userRepository, CustomUserServiceImpl customUserDetails, PasswordEncoder passwordEncoder, JwtTokenProvider jwtTokenProvider, CartService cartService) {
         this.userRepository = userRepository;
         this.customUserDetails = customUserDetails;
         this.passwordEncoder = passwordEncoder;
         this.jwtTokenProvider = jwtTokenProvider;
+        this.cartService = cartService;
     }
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse> createUserHandler(@Valid @RequestBody User user) throws UserException {
@@ -62,7 +68,8 @@ public class AuthController {
 
         User savedUser= userRepository.save(createdUser);
 
-//        cartService.createCart(savedUser);
+        // create empty cart at start
+        Cart cart = cartService.createCart(savedUser);
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(savedUser.getEmail(), savedUser.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);
