@@ -18,8 +18,8 @@ import java.util.List;
 @RequestMapping("/api/reviews")
 public class ReviewController {
 
-    private ReviewService reviewService;
-    private UserService userService;
+    private final ReviewService reviewService;
+    private final UserService userService;
 
     @Autowired
     public ReviewController(ReviewService reviewService,UserService userService) {
@@ -32,12 +32,12 @@ public class ReviewController {
             throws UserException, ProductException {
         User user=userService.findUserProfileByJwt(jwt);
         Review review=reviewService.createReview(req, user);
-        return new ResponseEntity<Review>(review, HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(review, HttpStatus.ACCEPTED);
     }
 
     @GetMapping("/product/{productId}")
     public ResponseEntity<List<Review>> getProductsReviewHandler(@PathVariable Long productId){
         List<Review>reviews=reviewService.getAllReview(productId);
-        return new ResponseEntity<List<Review>>(reviews,HttpStatus.OK);
+        return new ResponseEntity<>(reviews,HttpStatus.OK);
     }
 }

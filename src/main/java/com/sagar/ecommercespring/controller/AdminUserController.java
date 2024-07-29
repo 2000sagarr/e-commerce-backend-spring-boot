@@ -18,11 +18,13 @@ import java.util.List;
 @RequestMapping("/api/admin")
 public class AdminUserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
+    public AdminUserController(UserService userService){
+        this.userService = userService;
+    }
     @GetMapping("/users")
-    public ResponseEntity<List<User>> getAllUsers(@RequestHeader("Authorization") String jwt) throws UserException {
+    public ResponseEntity<List<User>> getAllUsers(@RequestHeader("Authorization") String jwt) {
 
         List<User> user=userService.findAllUsers();
         return new ResponseEntity<>(user, HttpStatus.ACCEPTED);

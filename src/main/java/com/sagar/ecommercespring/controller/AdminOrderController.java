@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/admin/orders")
 public class AdminOrderController {
-    private OrderService orderService;
+    private final OrderService orderService;
 
     @Autowired
     public AdminOrderController(OrderService orderService) {
@@ -32,28 +32,28 @@ public class AdminOrderController {
     public ResponseEntity<Order> ConfirmedOrderHandler(@PathVariable Long orderId,
                                                        @RequestHeader("Authorization") String jwt) throws OrderException {
         Order order=orderService.confirmedOrder(orderId);
-        return new ResponseEntity<Order>(order,HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(order,HttpStatus.ACCEPTED);
     }
 
     @PutMapping("/{orderId}/ship")
     public ResponseEntity<Order> shippedOrderHandler(@PathVariable Long orderId,
                                                      @RequestHeader("Authorization") String jwt) throws OrderException{
         Order order=orderService.shippedOrder(orderId);
-        return new ResponseEntity<Order>(order,HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(order,HttpStatus.ACCEPTED);
     }
 
     @PutMapping("/{orderId}/deliver")
     public ResponseEntity<Order> deliveredOrderHandler(@PathVariable Long orderId,
                                                        @RequestHeader("Authorization") String jwt) throws OrderException{
         Order order=orderService.deliveredOrder(orderId);
-        return new ResponseEntity<Order>(order,HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(order,HttpStatus.ACCEPTED);
     }
 
     @PutMapping("/{orderId}/cancel")
     public ResponseEntity<Order> canceledOrderHandler(@PathVariable Long orderId,
                                                       @RequestHeader("Authorization") String jwt) throws OrderException{
         Order order=orderService.cancledOrder(orderId);
-        return new ResponseEntity<Order>(order,HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(order,HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("/{orderId}/delete")

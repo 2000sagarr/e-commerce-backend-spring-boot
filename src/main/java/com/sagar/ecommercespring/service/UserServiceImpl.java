@@ -12,8 +12,8 @@ import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService{
-    private UserRepository userRepository;
-    private JwtTokenProvider jwtTokenProvider;
+    private final UserRepository userRepository;
+    private final JwtTokenProvider jwtTokenProvider;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository,JwtTokenProvider jwtTokenProvider) {

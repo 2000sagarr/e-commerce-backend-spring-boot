@@ -15,12 +15,12 @@ import java.util.Optional;
 
 @Service
 public class OrderServiceImpl implements OrderService{
-    private OrderRepository orderRepository;
-    private CartService cartService;
-    private AddressRepository addressRepository;
-    private UserRepository userRepository;
-    private OrderItemService orderItemService;
-    private OrderItemRepository orderItemRepository;
+    private final OrderRepository orderRepository;
+    private final CartService cartService;
+    private final AddressRepository addressRepository;
+    private final UserRepository userRepository;
+    private final OrderItemService orderItemService;
+    private final OrderItemRepository orderItemRepository;
 
     @Autowired
     public OrderServiceImpl(OrderRepository orderRepository,CartService cartService,

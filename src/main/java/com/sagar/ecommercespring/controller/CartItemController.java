@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.*;
 //@Tag(name="Cart Item Management", description = "create cart item delete cart item")
 public class CartItemController {
 
-    private CartItemService cartItemService;
-    private UserService userService;
+    private final CartItemService cartItemService;
+    private final UserService userService;
 
     @Autowired
     public CartItemController(CartItemService cartItemService,UserService userService) {
@@ -34,7 +34,7 @@ public class CartItemController {
 
         ApiResponse res=new ApiResponse("Item Remove From Cart",true);
 
-        return new ResponseEntity<ApiResponse>(res,HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(res,HttpStatus.ACCEPTED);
     }
 
     @PutMapping("/{cartItemId}")
@@ -43,8 +43,6 @@ public class CartItemController {
         User user=userService.findUserProfileByJwt(jwt);
 
         CartItem updatedCartItem =cartItemService.updateCartItem(user.getId(), cartItemId, cartItem);
-
-        //ApiResponse res=new ApiResponse("Item Updated",true);
 
         return new ResponseEntity<>(updatedCartItem, HttpStatus.ACCEPTED);
     }

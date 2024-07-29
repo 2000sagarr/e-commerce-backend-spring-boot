@@ -18,8 +18,8 @@ import java.util.List;
 @RequestMapping("/api/orders")
 public class OrderController {
 
-    private OrderService orderService;
-    private UserService userService;
+    private final OrderService orderService;
+    private final UserService userService;
 
     @Autowired
     public OrderController(OrderService orderService,UserService userService) {
@@ -33,14 +33,13 @@ public class OrderController {
 
         User user=userService.findUserProfileByJwt(jwt);
         Order order =orderService.createOrder(user, spippingAddress);
-        System.out.println();
-        return new ResponseEntity<Order>(order, HttpStatus.OK);
+        return new ResponseEntity<>(order, HttpStatus.OK);
 
     }
 
     @GetMapping("/user")
     public ResponseEntity<List<Order>> usersOrderHistoryHandler(@RequestHeader("Authorization")
-                                                                 String jwt) throws OrderException, UserException{
+                                                                 String jwt) throws UserException{
 
         User user=userService.findUserProfileByJwt(jwt);
         List<Order> orders=orderService.usersOrderHistory(user.getId());
@@ -51,7 +50,7 @@ public class OrderController {
     public ResponseEntity< Order> findOrderHandler(@PathVariable Long orderId, @RequestHeader("Authorization")
     String jwt) throws OrderException, UserException{
 
-        User user=userService.findUserProfileByJwt(jwt);
+        userService.findUserProfileByJwt(jwt);
         Order orders=orderService.findOrderById(orderId);
         return new ResponseEntity<>(orders,HttpStatus.ACCEPTED);
     }
