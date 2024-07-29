@@ -20,8 +20,8 @@ import java.util.Optional;
 @Service
 public class ProductServiceImpl implements ProductService{
 
-    private ProductRespository productRepository;
-    private CategoryRepository categoryRepository;
+    private final ProductRespository productRepository;
+    private final CategoryRepository categoryRepository;
 
     @Autowired
     public ProductServiceImpl(ProductRespository productRespository, CategoryRepository categoryRepository) {
@@ -60,6 +60,7 @@ public class ProductServiceImpl implements ProductService{
 
             thirdLevel=categoryRepository.save(thirdLavelCategory);
         }
+        System.out.println("Image ur: "+req.getImageUrl());
         Product product=new Product();
         product.setTitle(req.getTitle());
         product.setColor(req.getColor());

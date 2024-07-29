@@ -16,9 +16,9 @@ import java.util.List;
 @Service
 public class ReviewServiceImpl implements ReviewService{
 
-    private ReviewRepository reviewRepository;
-    private ProductService productService;
-    private ProductRespository productRepository;
+    private final ReviewRepository reviewRepository;
+    private final ProductService productService;
+    private final ProductRespository productRepository;
 
     @Autowired
     public ReviewServiceImpl(ReviewRepository reviewRepository, ProductService productService, ProductRespository productRepository) {

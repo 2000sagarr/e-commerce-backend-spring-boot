@@ -17,8 +17,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/ratings")
 public class RatingController {
-    private UserService userService;
-    private RatingService ratingServices;
+    private final UserService userService;
+    private final RatingService ratingServices;
 
     @Autowired
     public RatingController(UserService userService,RatingService ratingServices) {

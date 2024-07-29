@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class UserProductController {
 
-    private ProductService productService;
+    private final ProductService productService;
 
     @Autowired
     public UserProductController(ProductService productService) {
@@ -32,8 +32,6 @@ public class UserProductController {
 
 
         Page<Product> res= productService.getAllProduct(category, color, size, minPrice, maxPrice, minDiscount, sort,stock,pageNumber,pageSize);
-
-        System.out.println("complete products");
         return new ResponseEntity<>(res, HttpStatus.ACCEPTED);
 
     }
@@ -45,7 +43,7 @@ public class UserProductController {
 
         Product product=productService.findProductById(productId);
 
-        return new ResponseEntity<Product>(product,HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(product,HttpStatus.ACCEPTED);
     }
 
     @GetMapping("/products/search")
@@ -53,7 +51,7 @@ public class UserProductController {
 
         List<Product> products=productService.searchProduct(q);
 
-        return new ResponseEntity<List<Product>>(products,HttpStatus.OK);
+        return new ResponseEntity<>(products,HttpStatus.OK);
 
     }
 }

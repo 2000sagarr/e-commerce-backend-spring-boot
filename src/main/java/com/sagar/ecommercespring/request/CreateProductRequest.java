@@ -36,5 +36,22 @@ public class CreateProductRequest {
 
     private String thirdLavelCategory;
 
-
+    @Override
+    public String toString() {
+        return "CreateProductRequest{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", discountedPrice=" + discountedPrice +
+                ", discountPersent=" + discountPersent +
+                ", quantity=" + quantity +
+                ", brand='" + brand + '\'' +
+                ", color='" + color + '\'' +
+                ", size=" + size +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", topLavelCategory='" + topLavelCategory + '\'' +
+                ", secondLavelCategory='" + secondLavelCategory + '\'' +
+                ", thirdLavelCategory='" + thirdLavelCategory + '\'' +
+                '}';
+    }
 }
